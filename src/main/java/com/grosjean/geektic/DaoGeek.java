@@ -18,15 +18,15 @@ public class DaoGeek {
 	}
 	
 	public List<Geek> findAll() {
-		String jpql = "select spectacle from Spectacle spectacle order by spectacle.titre";
+		String jpql = "select id_geek from Geek geek";
 		return em.createQuery(jpql, Geek.class).getResultList();
 	}
 	
-	public void persist(Geek spectacle) {
-		em.persist(spectacle);
+	public void persist(Geek geek) {
+		em.persist(geek);
 	}
 	
-	public Geek findById(Long id) {
+	public Geek findById(int id) {
 		return em.find(Geek.class, id);
 	}
 	
