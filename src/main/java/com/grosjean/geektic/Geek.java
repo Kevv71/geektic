@@ -1,16 +1,16 @@
 package com.grosjean.geektic;
-import java.io.Serializable;
+
+/**
+@author Grosjean_Kévin
+**/
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import java.io.Serializable;
 
-/**
- *
- * @author Grosjean_Kévin
- */
 @Entity
 public class Geek implements Serializable {
     
@@ -22,16 +22,20 @@ public class Geek implements Serializable {
     @Id
     @SequenceGenerator(name = "geek_generator", sequenceName = "GEEK_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geek_generator")
+ 
     private int id;
+    /* Identifiant du geek */
     
     private String nom;
+    /* Nom du geek */
     
     private String prenom;
+    /* Prenom du geek */
     
     private String email;
+    /* Email du geek */
 
-
-    /* Constructeurs */
+    /* Constructeurs de Geek*/
     public Geek() {
         super();
     }
@@ -44,7 +48,7 @@ public class Geek implements Serializable {
     }
     
     /* Getters / Setters */
-    public long getId() {
+    public int getId() {
         return id;
     }
 

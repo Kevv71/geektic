@@ -1,8 +1,9 @@
 
 CREATE TABLE Geek(
-id_geek numeric , 
-nom_geek varchar(20), 
-prenom_geek varchar(20),
+id numeric , 
+nom varchar(20), 
+prenom varchar(20),
+email varchar(30),
 PRIMARY KEY(id_geek)
 );
  

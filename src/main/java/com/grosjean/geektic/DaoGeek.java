@@ -1,5 +1,9 @@
 package com.grosjean.geektic;
- 
+
+/**
+@author Grosjean_Kévin
+**/
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,7 +22,7 @@ public class DaoGeek {
 	}
 	
 	public List<Geek> findAll() {
-		String jpql = "select id_geek from Geek geek";
+		String jpql = "select geek from Geek geek";
 		return em.createQuery(jpql, Geek.class).getResultList();
 	}
 	
@@ -30,9 +34,9 @@ public class DaoGeek {
 		return em.find(Geek.class, id);
 	}
 	
-	public List<Geek> findByArtiste(String artiste) {
+	public List<Geek> findByGeek(String geek) {
 		/*String jpql = 
-			"select spectacle from Spectacle spectacle"
+			"select geek from Geek geek"
 			+ " where lower(spectacle.artiste) like :artiste"
 			+ " order by spectacle.titre";
 		return em.createQuery(jpql, Geek.class)
