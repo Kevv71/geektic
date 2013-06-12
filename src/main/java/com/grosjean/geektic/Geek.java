@@ -37,13 +37,14 @@ public class Geek implements Serializable {
     private String email;
     private String login;
     private String password;
+   private boolean reglement;
    
     /* Constructeurs de Geek*/
     public Geek() {
         super();
     }
     
-    public Geek(long id, String nom, String prenom, String date_naissance, String adresse, String ville, String cp,  String email, String login, String password) {
+    public Geek(long id, String nom, String prenom, String date_naissance, String adresse, String ville, String cp,  String email, String login, String password, boolean reglement) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -54,6 +55,7 @@ public class Geek implements Serializable {
         this.email = email;
         this.login=login;
         this.password=password;
+        this.reglement =reglement;
     }
     
     /* Getters / Setters */
@@ -135,6 +137,14 @@ public class Geek implements Serializable {
 
 	public void setDate_naissance(String date_naissance) {
 		this.date_naissance = date_naissance;
+	}
+
+	public boolean isReglement() {
+		return reglement;
+	}
+
+	public void setReglement(boolean reglement) {
+		this.reglement = reglement;
 	}
 
 	 

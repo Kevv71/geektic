@@ -17,10 +17,10 @@
 		<table>
 			<tr>
 				<th><a href="<c:url value = "/" ></c:url>">Accueil</a></th>
-				<th><a href="">Mon Profil</a></th>
-				<th><a href="">Recherche de Geek</a></th>
-			<th><a href="<c:url value = "/presentation" ></c:url>">Présentation</a></th>
-			<th><a href="">FAQ</a></th>
+				<th><a href="<c:url value = "/profil" ></c:url>">Mon Profil</a></th>
+				<th><a href="<c:url value = "/recherche" ></c:url>">Recherche de Geek</a></th>
+				<th><a href="<c:url value = "/presentation" ></c:url>">Présentation</a></th>
+				<th><a href="">FAQ</a></th>
 			</tr>
 		</table>
 	</div>
@@ -76,7 +76,7 @@
 			<p>Vous autorisez les propriétaires du site Geektic à supprimer,
 				modifier, déplacer ou fermer n'importe quel message pour n'importe
 				quelle raison et sans autorisation préalable de votre part.</p>
-			<br> <input type="checkbox" name="regles">Accepeter les
+			<br> <form:checkbox path="reglement" />Accepeter les
 			règles
 		</div>
 

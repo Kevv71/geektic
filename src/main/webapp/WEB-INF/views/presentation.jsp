@@ -15,10 +15,10 @@
 	 		
 		<div id="menuhaut" align="center">
 			<table>
-			<tr>	
+			<tr>
 				<th><a href="<c:url value = "/" ></c:url>">Accueil</a></th>
-				<th><a href="">Mon Profil</a></th>
-				<th><a href="">Recherche de Geek</a></th>
+				<th><a href="<c:url value = "/profil" ></c:url>">Mon Profil</a></th>
+				<th><a href="<c:url value = "/recherche" ></c:url>">Recherche de Geek</a></th>
 				<th><a href="<c:url value = "/presentation" ></c:url>">Présentation</a></th>
 				<th><a href="">FAQ</a></th>
 			</tr>

@@ -1,7 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
  
-
 <html>
 
 <head>
@@ -28,15 +27,25 @@
 
 	<div id="corps">
 
-		<h3 align="center">Mon Profil Geektic</h3>
+		<h3 align="center">Recherche un geek sur Geektic</h3>
 		<br>
 		
+		<form:form method="post" action="/rechercher_all_geek" commandName="geek">
+									
+		<br>
+		<input type='submit' name='BtnRecherche' value='Rechercher'><br>
+		<br>
+				
+</form:form>
+
 		
-		
-		${geek.id}
-		
-	
-    
+      <c:forEach var="geek" items="${geeks}">
+        <tr>
+          <td>${geek.getNom()}</td>
+           
+        </tr>
+        
+      </c:forEach>
     
 				
 	</div>

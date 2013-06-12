@@ -7,7 +7,6 @@ package com.grosjean.geektic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
  
@@ -40,21 +39,29 @@ public class GeekController {
 		geekService.create(geek);
 		return "inscription";
 	}
-	
-	
+		
+	@RequestMapping(value="/recherche", method = RequestMethod.GET)
+	public String viewRecherche(ModelMap model){
+		 
+		return "recherche";
+	}
+
 	@RequestMapping(value="/profil", method = RequestMethod.GET)
 	public String viewProfil(ModelMap model){
 		 
 		return "profil";
 	}
 	
-	@RequestMapping(value="/profil/{id}", method=RequestMethod.GET)
-	public String detail(@PathVariable("id") Long geekId, ModelMap model) {
-		Geek geek = geekService.findById(geekId);
-		model.addAttribute("geek", geek);
-		return "profil";
+	@RequestMapping(value="/rechercher_all_geek", method = RequestMethod.POST)
+	public  String  Rechercher(ModelMap model){
+	    model.addAttribute("geeks", geekService.list());
+		return "recherche";
+	    	     
 	}
-	/*@RequestMapping(method = RequestMethod.GET)
+	
+	
+	/*
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView listSpec = new ModelAndView("index");
 		listSpec.addObject("listeGeeks",geekService.list());
