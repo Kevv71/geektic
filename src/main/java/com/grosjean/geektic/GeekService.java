@@ -13,15 +13,23 @@ import org.springframework.stereotype.Service;
 public class GeekService {
 	
 	@Autowired
-	private DaoGeek Daogeek;
+	private DaoGeek daoGeek;
 	
 	public GeekService() {
 		super();
 	}
 	
 	public List<Geek> list() {
-		return Daogeek.findAll();
+		return daoGeek.findAll();
 	}
 	
-
+	public Geek findById(long id) {
+		return daoGeek.findById(id);
+	}
+	
+	public boolean create(Geek geek){
+		
+		daoGeek.persist(geek);
+		return true;
+	}
 }

@@ -1,0 +1,97 @@
+
+th
+
+{
+	width: 160;
+}
+body
+{
+   margin: auto; /* Pour centrer notre page */
+   margin-top: 18px; /* Pour éviter de coller avec le haut de la fenêtre du navigateur. Essayez d'enlever pour voir ! */
+   margin-bottom: 20px;    /* Idem pour le bas du navigateur */
+   margin-left: 10PX;
+
+   font-family: 	Comic sans MS;
+   font-size: 16;
+   background:  lightgrey;
+  	}
+	
+	#menu
+{
+   float:	left	;/* Le menu flottera à gauche */
+   width: 200px; /* Très important : donner une taille au menu */
+   margin-left: 5PX;
+
+	background:  white;
+	border: 2mm outset black;
+	padding: 10px;	
+  	min-height: 400;
+ 	padding-bottom: 10px;
+ 	padding-left: 10px;	 
+
+}
+#bas
+{
+
+	margin-left: 400px; /* Une marge à gauche pour pousser le corps, afin qu'il ne passe sous le menu */
+   margin-bottom: 2px; /* Ca c'est pour éviter que le corps colle trop au pied de page en-dessous */
+   margin-right: 410px;
+   padding: 8px; /* Pour éviter que le texte à l'intérieur du corps ne colle trop à la bordure */
+   max-height: 250;
+	border: 2mm outset black;
+	background-color:white;
+}
+#corps
+{
+   margin-left: 245px; /* Une marge à gauche pour pousser le corps, afin qu'il ne passe sous le menu */
+   margin-bottom: 5px; /* Ca c'est pour éviter que le corps colle trop au pied de page en-dessous */
+   margin-right: 245px;
+   padding: 8px; /* Pour éviter que le texte à l'intérieur du corps ne colle trop à la bordure */
+   min-height: 470;
+	border: 2mm outset black;
+	background-color:white;
+}
+#regles
+{
+	 
+	color: #000000;
+	padding: 10px;
+	border: 2px outset;
+	font-family: 	Comic sans MS;
+	font-size: 11;
+}
+
+h2
+{
+  
+   font-family: 	ALGERIAN;
+   font-size:  28;
+  
+ }
+ h1
+ {
+ 	  font-size:  18;
+ }
+ 
+ a:link
+ {
+ 
+ color: black;
+ }
+  a:visited
+ {
+ 
+ color: black;
+ }
+ 
+
+ #menuhaut
+ {
+ 	 margin-left: 245px; /* Une marge à gauche pour pousser le corps, afin qu'il ne passe sous le menu */
+   margin-bottom: 5px; /* Ca c'est pour éviter que le corps colle trop au pied de page en-dessous */
+   margin-right: 245px;
+   padding: 8px; 
+   	border: 2mm outset black;
+	background-color:white;
+ }
+ 

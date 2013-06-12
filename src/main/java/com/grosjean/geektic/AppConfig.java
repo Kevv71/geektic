@@ -1,5 +1,7 @@
 package com.grosjean.geektic;
 
+
+
 import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
@@ -24,86 +26,88 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
-
+ 
 /**
  * Spring webapp configuration
- * @author GK
+ * 
+ * @author Grosjean Kevin
  */
 @Configuration
-@ComponentScan("com.ninja_squad")
+@ComponentScan("com.grosjean.geektic")
 @EnableWebMvc
 @EnableTransactionManagement
 public class AppConfig extends WebMvcConfigurerAdapter {
-    @Bean
-    public ViewResolver viewResolver() {
-        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setSuffix(".jsp");
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setViewClass(JstlView.class);
-        return resolver;
-    }
+	@Bean
+	public ViewResolver viewResolver() {
+		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+		resolver.setSuffix(".jsp");
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setViewClass(JstlView.class);
+		return resolver;
+	}
 
-    @Bean
-    public MessageSource messageSource() {
-        ResourceBundleMessageSource result = new ResourceBundleMessageSource();
-        result.setBasenames("errors");
-        result.setUseCodeAsDefaultMessage(true);
-        return result;
-    }
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource result = new ResourceBundleMessageSource();
+		result.setBasenames("errors");
+		result.setUseCodeAsDefaultMessage(true);
+		return result;
+	}
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        DateFormatterRegistrar registrar = new DateFormatterRegistrar();
-        registrar.setFormatter(dateFormatter());
-        registrar.registerFormatters(registry);
-    }
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		DateFormatterRegistrar registrar = new DateFormatterRegistrar();
+		registrar.setFormatter(dateFormatter());
+		registrar.registerFormatters(registry);
+	}
 
-    @Bean
-    public DateFormatter dateFormatter() {
-        DateFormatter dateFormatter = new DateFormatter();
-        dateFormatter.setStylePattern("S-");
-        return dateFormatter;
-    }
+	@Bean
+	public DateFormatter dateFormatter() {
+		DateFormatter dateFormatter = new DateFormatter();
+		dateFormatter.setStylePattern("S-");
+		return dateFormatter;
+	}
 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-      configurer.enable();
-    }
+	@Override
+	public void configureDefaultServletHandling(
+			DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 
-    
-    @Bean
-    public LocalContainerEntityManagerFactoryBean emf() {
-        LocalContainerEntityManagerFactoryBean result = new LocalContainerEntityManagerFactoryBean();
-        result.setPersistenceUnitName("geektic");
-        result.setDataSource(dataSource());
-        result.setPersistenceProviderClass(HibernatePersistence.class);
-        return result;
-    }
+	@Bean
+	public LocalContainerEntityManagerFactoryBean emf() {
+		LocalContainerEntityManagerFactoryBean result = new LocalContainerEntityManagerFactoryBean();
+		result.setPersistenceUnitName("geektic");
+		result.setDataSource(dataSource());
+		result.setPersistenceProviderClass(HibernatePersistence.class);
+		return result;
+	}
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource result = new DriverManagerDataSource("jdbc:hsqldb:hsql://localhost/geektic", "sa", "");
-        result.setDriverClassName(org.hsqldb.jdbc.JDBCDriver.class.getName());
-        return result;
-    }
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource result = new DriverManagerDataSource(
+				"jdbc:hsqldb:hsql://localhost/geektic", "sa", "");
+		result.setDriverClassName(org.hsqldb.jdbc.JDBCDriver.class.getName());
+		return result;
+	}
 
-    @Bean
-    public PlatformTransactionManager txManager() {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(emf().getObject());
-        return txManager;
-    }
+	@Bean
+	public PlatformTransactionManager txManager() {
+		JpaTransactionManager txManager = new JpaTransactionManager();
+		txManager.setEntityManagerFactory(emf().getObject());
+		return txManager;
+	}
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addWebRequestInterceptor(openEntityManagerInViewInterceptor());
-    }
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addWebRequestInterceptor(openEntityManagerInViewInterceptor());
+	}
 
-    @Bean
-    public OpenEntityManagerInViewInterceptor openEntityManagerInViewInterceptor() {
-        OpenEntityManagerInViewInterceptor result = new OpenEntityManagerInViewInterceptor();
-        result.setEntityManagerFactory(emf().getObject());
-        return result;
-    }
+	@Bean
+	public OpenEntityManagerInViewInterceptor openEntityManagerInViewInterceptor() {
+		OpenEntityManagerInViewInterceptor result = new OpenEntityManagerInViewInterceptor();
+		result.setEntityManagerFactory(emf().getObject());
+		return result;
+	}
 
 }
